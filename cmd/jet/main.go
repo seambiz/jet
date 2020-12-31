@@ -3,14 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+	"strings"
+
 	mysqlgen "github.com/go-jet/jet/v2/generator/mysql"
 	postgresgen "github.com/go-jet/jet/v2/generator/postgres"
 	"github.com/go-jet/jet/v2/mysql"
 	"github.com/go-jet/jet/v2/postgres"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
-	"os"
-	"strings"
 )
 
 var (
@@ -47,7 +48,7 @@ func main() {
 
 	flag.Usage = func() {
 		_, _ = fmt.Fprint(os.Stdout, `
-Jet generator 2.3.0
+Jet generator 2.4.1
 
 Usage:
   -source string

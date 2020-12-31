@@ -68,7 +68,19 @@ type integerLiteralExpression struct {
 }
 
 // Int creates new integer literal
-func Int(value int64) IntegerExpression {
+func Int(value int) IntegerExpression {
+	numLiteral := &integerLiteralExpression{}
+
+	numLiteral.literalExpressionImpl = *literal(value)
+
+	numLiteral.literalExpressionImpl.Parent = numLiteral
+	numLiteral.integerInterfaceImpl.parent = numLiteral
+
+	return numLiteral
+}
+
+// Int64 creates new integer literal
+func Int64(value int64) IntegerExpression {
 	numLiteral := &integerLiteralExpression{}
 
 	numLiteral.literalExpressionImpl = *literal(value)
